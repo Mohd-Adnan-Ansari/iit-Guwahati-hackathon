@@ -36,8 +36,7 @@ export default function WasteStep({ values, onChange, errors }) {
               step="0.1"
               value={values.dailyWasteKg}
               onChange={(e) => onChange('dailyWasteKg', e.target.value)}
-              placeholder="e.g. 2.0"
-              className={`w-full bg-white border rounded-xl py-2.5 px-3.5 text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 transition-all ${
+              className={`w-full bg-white border rounded-xl py-2.5 px-3.5 text-slate-900 focus:outline-none focus:ring-2 transition-all ${
                 errors.dailyWasteKg
                   ? 'border-red-400 focus:ring-red-400/20'
                   : 'border-slate-300 focus:border-emerald-600 focus:ring-emerald-600/20'

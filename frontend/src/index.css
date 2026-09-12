@@ -6,6 +6,14 @@
 @import "tailwindcss/utilities";
 
 :root {
+  /* ── Eco primary palette ── */
+  --color-primary:      #0FAF7A;
+  --color-primary-dark: #087F5B;
+  --color-primary-deep: #075E46;
+  --color-mint:         #DDF7EA;
+  --color-mint-light:   #EFFBF5;
+  --color-bg:           #F7FCF9;
+
   /* Depth shadow system */
   --shadow-ambient:   0 2px 8px -2px rgba(0,0,0,0.06);
   --shadow-3d-xs:     0 1px 2px rgba(0,0,0,0.06), 0 4px 12px -4px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9);
@@ -14,15 +22,22 @@
   --shadow-3d-lg:     0 8px 10px rgba(0,0,0,0.04), 0 24px 60px -10px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,1);
   --shadow-hover:     0 12px 40px -8px rgba(0,0,0,0.18), 0 4px 8px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,1);
 
-  /* Emerald glow system */
-  --glow-emerald-xs:  0 0 12px rgba(16,185,129,0.10);
-  --glow-emerald-sm:  0 0 20px rgba(16,185,129,0.15), 0 4px 20px rgba(16,185,129,0.08);
-  --glow-emerald-md:  0 0 30px rgba(16,185,129,0.20), 0 8px 32px rgba(16,185,129,0.12);
-  --glow-emerald-lg:  0 0 50px rgba(16,185,129,0.25), 0 16px 48px rgba(16,185,129,0.16);
+  /* Emerald glow system — enhanced with primary color */
+  --glow-emerald-xs:  0 0 12px rgba(15,175,122,0.12);
+  --glow-emerald-sm:  0 0 20px rgba(15,175,122,0.16), 0 4px 20px rgba(15,175,122,0.09);
+  --glow-emerald-md:  0 0 30px rgba(15,175,122,0.22), 0 8px 32px rgba(15,175,122,0.13);
+  --glow-emerald-lg:  0 0 50px rgba(15,175,122,0.28), 0 16px 48px rgba(15,175,122,0.18);
 
   /* Contact shadow (bottom only) */
   --contact-shadow:   0 4px 0 rgba(0,0,0,0.06);
   --contact-hover:    0 6px 0 rgba(0,0,0,0.08);
+
+  /* Card eco-enhancement */
+  --card-eco-border:  rgba(15,175,122,0.12);
+  --card-eco-shadow:  0 12px 40px rgba(15,175,122,0.08);
+
+  /* Navbar eco underline */
+  --nav-eco-shadow:   0 1px 0 rgba(15,175,122,0.14), 0 4px 16px rgba(15,175,122,0.07);
 }
 
 /* ─── Base ──────────────────────────────────────────────────── */
@@ -32,13 +47,11 @@
     -moz-osx-font-smoothing: grayscale;
   }
   body {
-    background-color: #f0fdf4;
-    background-image:
-      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(16,185,129,0.07) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(20,184,166,0.05) 0%, transparent 50%);
+    background: linear-gradient(135deg, #FFFFFF 0%, #E8F5E9 45%, #C8E6C9 100%) !important;
     background-attachment: fixed;
-    color: #0f172a;
+    color: #111827;
     font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+    min-height: 100vh;
   }
 }
 
@@ -81,9 +94,10 @@
   background: rgba(255, 255, 255, 0.90);
   backdrop-filter: blur(20px) saturate(160%);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.75);
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-  box-shadow: var(--shadow-3d-md);
+  /* Subtle green-tinted border instead of plain white */
+  border: 1px solid rgba(15,175,122,0.13);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  box-shadow: var(--shadow-3d-md), var(--card-eco-shadow);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   transform: translateZ(0);
   will-change: transform, box-shadow;
@@ -91,35 +105,37 @@
 
 .card-3d:hover {
   transform: translateY(-4px) translateZ(0);
-  box-shadow: var(--shadow-hover), var(--glow-emerald-xs);
+  box-shadow: var(--shadow-hover), var(--glow-emerald-sm);
+  border-color: rgba(15,175,122,0.22);
 }
 
 .card-3d-sm {
   background: rgba(255, 255, 255, 0.90);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.7);
+  border: 1px solid rgba(15,175,122,0.11);
   border-bottom: 1px solid rgba(0,0,0,0.05);
-  box-shadow: var(--shadow-3d-sm);
+  box-shadow: var(--shadow-3d-sm), 0 6px 20px rgba(15,175,122,0.06);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card-3d-sm:hover {
   transform: translateY(-3px);
-  box-shadow: var(--shadow-hover);
+  box-shadow: var(--shadow-hover), var(--glow-emerald-xs);
+  border-color: rgba(15,175,122,0.20);
 }
 
 .card-3d-flat {
-  background: rgba(255,255,255,0.85);
-  border: 1px solid rgba(226,232,240,0.9);
-  box-shadow: var(--shadow-3d-xs);
+  background: rgba(255,255,255,0.88);
+  border: 1px solid rgba(15,175,122,0.10);
+  box-shadow: var(--shadow-3d-xs), 0 4px 14px rgba(15,175,122,0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .card-3d-flat:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-3d-sm);
-  border-color: rgba(52,211,153,0.5);
+  box-shadow: var(--shadow-3d-sm), var(--glow-emerald-xs);
+  border-color: rgba(15,175,122,0.26);
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -127,24 +143,25 @@
    ═══════════════════════════════════════════════════════════════ */
 
 .btn-3d-primary {
-  background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+  /* Richer emerald gradient using brand primary */
+  background: linear-gradient(135deg, #10b981 0%, #0FAF7A 40%, #059669 100%);
   border: none;
-  border-bottom: 3px solid #047857;
-  box-shadow: 0 4px 14px rgba(16,185,129,0.35), 0 2px 4px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.20);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-bottom-width 0.15s ease;
+  border-bottom: 3px solid #087F5B;
+  box-shadow: 0 4px 14px rgba(15,175,122,0.38), 0 2px 4px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.22);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-bottom-width 0.15s ease, background 0.2s ease;
   transform: translateY(0) translateZ(0);
 }
 
 .btn-3d-primary:hover {
-  background: linear-gradient(180deg, #34d399 0%, #10b981 100%);
+  background: linear-gradient(135deg, #34d399 0%, #10b981 40%, #0FAF7A 100%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(16,185,129,0.40), 0 4px 8px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.25);
+  box-shadow: 0 10px 28px rgba(15,175,122,0.45), 0 4px 8px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.28), 0 0 0 3px rgba(15,175,122,0.12);
   border-bottom-width: 4px;
 }
 
 .btn-3d-primary:active {
   transform: translateY(1px);
-  box-shadow: 0 2px 8px rgba(16,185,129,0.25);
+  box-shadow: 0 2px 8px rgba(15,175,122,0.28);
   border-bottom-width: 2px;
 }
 
@@ -395,9 +412,9 @@
    BADGE PILL
    ═══════════════════════════════════════════════════════════════ */
 .badge-3d {
-  background: linear-gradient(135deg, rgba(240,253,244,1) 0%, rgba(209,250,229,0.8) 100%);
-  border: 1px solid rgba(52,211,153,0.35);
-  box-shadow: 0 1px 3px rgba(16,185,129,0.12), inset 0 1px 0 rgba(255,255,255,0.8);
+  background: linear-gradient(135deg, #EFFBF5 0%, #DDF7EA 100%);
+  border: 1px solid rgba(15,175,122,0.28);
+  box-shadow: 0 1px 3px rgba(15,175,122,0.14), inset 0 1px 0 rgba(255,255,255,0.9);
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -416,4 +433,139 @@
   border: 2px solid rgba(16,185,129,0.5);
   animation: rippleOut 1.6s ease-out infinite;
   pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ECO SECTION BACKGROUNDS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Hero section — very faint green-tinted sky */
+.section-hero-eco {
+  background: linear-gradient(180deg,
+    #ffffff       0%,
+    #F4FBF7      40%,
+    #EAF8F0     100%);
+}
+
+/* Alternate section tints */
+.section-eco-a {
+  background: linear-gradient(180deg, #ffffff 0%, #F5FCF8 100%);
+}
+.section-eco-b {
+  background: linear-gradient(180deg, #F1FAF5 0%, #EAF8F0 100%);
+}
+.section-eco-c {
+  background: linear-gradient(180deg, #F7FCF9 0%, #F1FAF5 100%);
+}
+
+/* ── Visible White + Light Green Blended Gradient for Home Page Container / Root ── */
+.home-bg-gradient {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E8F5E9 45%, #C8E6C9 100%) !important;
+  background-attachment: fixed !important;
+}
+
+.section-transition-soft {
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(240, 253, 244, 0.60) 25%,
+    rgba(220, 252, 231, 0.45) 50%,
+    rgba(240, 253, 244, 0.60) 75%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   NAVBAR ECO ENHANCEMENT
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Add to navbar via JS className — only affects shadow/border */
+.nav-eco-scrolled {
+  border-bottom-color: rgba(15,175,122,0.16) !important;
+  box-shadow: 0 1px 0 rgba(15,175,122,0.10), 0 4px 20px rgba(15,175,122,0.07), 0 8px 32px rgba(0,0,0,0.06) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ECO DECORATIVE ELEMENTS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Subtle leaf silhouette background element */
+.eco-leaf-bg {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.06;
+  background: radial-gradient(ellipse at center, #0FAF7A 0%, transparent 70%);
+  border-radius: 50% 10% 50% 10% / 50% 50% 10% 10%;
+  filter: blur(2px);
+}
+
+/* Floating eco particle */
+.eco-particle {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(15,175,122,0.55) 0%, rgba(15,175,122,0) 70%);
+  animation: ecoParticleFloat 12s ease-in-out infinite;
+}
+
+/* Soft green glow dot */
+.eco-glow-dot {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  background: rgba(15,175,122,0.08);
+  filter: blur(24px);
+  animation: ecoGlowPulse 8s ease-in-out infinite;
+}
+
+/* Glass panel — eco-tinted variant */
+.glass-panel-eco {
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid rgba(15,175,122,0.12);
+  box-shadow: 0 12px 40px rgba(15,175,122,0.08), 0 4px 6px rgba(0,0,0,0.03), inset 0 1px 0 rgba(255,255,255,1);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ECO KEYFRAME ANIMATIONS
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes ecoParticleFloat {
+  0%   { transform: translateY(0px)   translateX(0px)  scale(1);    opacity: 0.08; }
+  25%  { transform: translateY(-18px) translateX(8px)  scale(1.1);  opacity: 0.12; }
+  50%  { transform: translateY(-10px) translateX(-6px) scale(0.95); opacity: 0.07; }
+  75%  { transform: translateY(-22px) translateX(4px)  scale(1.05); opacity: 0.11; }
+  100% { transform: translateY(0px)   translateX(0px)  scale(1);    opacity: 0.08; }
+}
+
+@keyframes ecoGlowPulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50%       { opacity: 0.9; transform: scale(1.08); }
+}
+
+@keyframes ecoLeafDrift {
+  0%   { transform: translateY(0) rotate(0deg);    opacity: 0; }
+  10%  { opacity: 1; }
+  50%  { transform: translateY(-40px) rotate(12deg); opacity: 0.8; }
+  90%  { opacity: 0.6; }
+  100% { transform: translateY(-80px) rotate(-6deg); opacity: 0; }
+}
+
+/* CTA button glow pulse */
+@keyframes ctaPulse {
+  0%, 100% { opacity: 0.35; transform: scale(1.02); }
+  50%       { opacity: 0.55; transform: scale(1.08); }
+}
+
+/* Utility — eco leaf drift */
+.animate-eco-leaf  { animation: ecoLeafDrift 10s ease-in-out infinite; }
+.animate-eco-float { animation: ecoParticleFloat 12s ease-in-out infinite; }
+.animate-eco-glow  { animation: ecoGlowPulse 8s ease-in-out infinite; }
+
+/* ─── Gradient text — eco primary ─── */
+.gradient-text-eco {
+  background: linear-gradient(135deg, #0FAF7A 0%, #059669 50%, #087F5B 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

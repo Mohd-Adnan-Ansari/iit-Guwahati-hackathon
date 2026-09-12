@@ -21,10 +21,10 @@ export default function CalculatorPage() {
   const [serverError, setServerError] = useState('');
 
   const [formData, setFormData] = useState({
-    dailyDistanceKm: 20,
+    dailyDistanceKm: '',
     transportMode: 'car',
-    travelDaysPerMonth: 22,
-    monthlyElectricityKwh: 150,
+    travelDaysPerMonth: '',
+    monthlyElectricityKwh: '',
     dietType: 'quantity_based',
     // Food item quantities (all optional, default 0)
     food_rice: '',
@@ -57,8 +57,8 @@ export default function CalculatorPage() {
     food_packaged_processed: '',
     food_other_food: '',
     foodEmissionsKgMonth: 0,
-    dailyWasteKg: 2,
-    recyclingPercentage: 60,
+    dailyWasteKg: '',
+    recyclingPercentage: 0,
   });
 
   const [errors, setErrors] = useState({});
@@ -79,10 +79,10 @@ export default function CalculatorPage() {
 
   const handleReset = () => {
     setFormData({
-      dailyDistanceKm: 0,
-      transportMode: 'bus',
-      travelDaysPerMonth: 20,
-      monthlyElectricityKwh: 100,
+      dailyDistanceKm: '',
+      transportMode: 'car',
+      travelDaysPerMonth: '',
+      monthlyElectricityKwh: '',
       dietType: 'quantity_based',
       // Reset all food fields
       food_rice: '',
@@ -115,8 +115,8 @@ export default function CalculatorPage() {
       food_packaged_processed: '',
       food_other_food: '',
       foodEmissionsKgMonth: 0,
-      dailyWasteKg: 1.5,
-      recyclingPercentage: 40,
+      dailyWasteKg: '',
+      recyclingPercentage: 0,
     });
     setIsDemo(false);
     setErrors({});

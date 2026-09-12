@@ -32,7 +32,7 @@ export default function LoginPage() {
     try {
       try { await login('demouser', 'password123'); }
       catch {
-        await api.post('/auth/register', { username: 'demouser', email: 'demo@iitg.ac.in', password: 'password123', displayName: 'Campus Demo User' });
+        await api.post('/auth/register', { username: 'demouser', email: 'demo@carbonlens.org', password: 'password123', displayName: 'Campus Demo User' });
         await login('demouser', 'password123');
       }
       navigate('/dashboard');
@@ -86,15 +86,15 @@ export default function LoginPage() {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4" autoComplete="off">
             <div className="space-y-1.5">
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">Username or Email</label>
               <div className="relative">
                 <input
                   type="text" value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  placeholder="e.g. student or student@iitg.ac.in"
-                  className="w-full rounded-xl py-2.5 px-3.5 pl-10 text-sm text-slate-900 placeholder-slate-400 input-3d"
+                  autoComplete="off"
+                  className="w-full rounded-xl py-2.5 px-3.5 pl-10 text-sm text-slate-900 input-3d"
                 />
                 <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               </div>
@@ -106,8 +106,8 @@ export default function LoginPage() {
                 <input
                   type="password" value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="••••••••"
-                  className="w-full rounded-xl py-2.5 px-3.5 pl-10 text-sm text-slate-900 placeholder-slate-400 input-3d"
+                  autoComplete="new-password"
+                  className="w-full rounded-xl py-2.5 px-3.5 pl-10 text-sm text-slate-900 input-3d"
                 />
                 <Lock className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               </div>

@@ -414,10 +414,9 @@ export default function WhatIfPage() {
           <div className="pt-4 border-t border-slate-100 flex gap-2">
             <input
               type="text"
-              placeholder="e.g. Scenario B — Cycling + 80% Recycling"
               value={scenarioName}
               onChange={(e) => setScenarioName(e.target.value)}
-              className="flex-1 rounded-xl px-3.5 py-2 text-xs text-slate-900 placeholder-slate-400 input-3d"
+              className="flex-1 rounded-xl px-3.5 py-2 text-xs text-slate-900 input-3d"
             />
             <button
               type="button"

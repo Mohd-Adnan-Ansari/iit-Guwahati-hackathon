@@ -104,20 +104,25 @@ def _get_demo_trends():
 
 def seed_demo_campus():
     """Seed demo university and campus data."""
-    uni = University.query.filter_by(name='IIT Guwahati').first()
+    uni = University.query.first()
     if not uni:
-        uni = University(name='IIT Guwahati', country='India', state='Assam')
+        uni = University(name='Central University', country='India', state='National')
         db.session.add(uni)
         db.session.flush()
+    else:
+        uni.name = 'Central University'
+        uni.state = 'National'
 
-    campus = Campus.query.filter_by(name='Main Campus', university_id=uni.id).first()
+    campus = Campus.query.filter_by(university_id=uni.id).first()
     if not campus:
         campus = Campus(
             university_id=uni.id,
             name='Main Campus',
-            location='Guwahati, Assam'
+            location='Main Campus District'
         )
         db.session.add(campus)
+    else:
+        campus.location = 'Main Campus District'
 
     db.session.commit()
     return campus

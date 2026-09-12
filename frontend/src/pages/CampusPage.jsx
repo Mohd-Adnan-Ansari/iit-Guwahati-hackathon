@@ -8,7 +8,6 @@ import {
   Building2,
   Users,
   Globe2,
-  Info,
   TrendingDown,
   Sparkles,
   Layers,
@@ -108,22 +107,6 @@ export default function CampusPage() {
           <Globe2 className="w-4 h-4 text-emerald-600" />
           <span>Campus: Main Campus</span>
         </div>
-      </div>
-
-      {/* Demo Data Badge */}
-      <div
-        className="p-4 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-amber-900"
-        style={{ background: 'rgba(255,251,235,0.90)', backdropFilter: 'blur(12px)', border: '1px solid rgba(252,211,77,0.4)', boxShadow: 'var(--shadow-3d-xs)' }}
-      >
-        <div className="flex items-center gap-2.5">
-          <Info className="w-5 h-5 flex-shrink-0 text-amber-600" />
-          <p>
-            <strong>Illustrative Campus Data:</strong> These figures represent simulated metrics for AVINYA 2026 demonstration. They show the platform's ability to aggregate student footprints without compromising individual privacy.
-          </p>
-        </div>
-        <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 border border-amber-300 uppercase flex-shrink-0">
-          Illustrative Data
-        </span>
       </div>
 
       {/* TOP LEVEL CAMPUS METRICS */}

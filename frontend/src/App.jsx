@@ -30,7 +30,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <div className="flex flex-col min-h-screen bg-[#f8fafc] text-slate-800 font-sans selection:bg-emerald-500 selection:text-white">
+        <div className="flex flex-col min-h-screen text-slate-800 font-sans selection:bg-emerald-500 selection:text-white">
           <ScrollToTop />
           <Navbar />
           <main className="flex-grow">

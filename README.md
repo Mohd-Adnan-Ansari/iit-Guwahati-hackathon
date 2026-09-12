@@ -2,8 +2,6 @@
 
 > **Track. Understand. Reduce Your Campus Carbon Footprint.**
 
-**Event:** AVINYA 2026 — EcoInnovate Challenge  
-**Organized by:** Prakriti Club × Techniche | IIT Guwahati  
 **Team:** Tech-Bro  
 **Platform Status:** Production-Quality Full-Stack Application  
 
@@ -280,14 +278,12 @@ GET /api/emission-factors
 
 1. **Mobile Application (React Native):** Direct reuse of the calculation engine and API service layer for iOS and Android campus apps.
 2. **IoT Smart Meter Integration:** Automatic ingestion of electricity usage from smart campus hostel meters.
-3. **Multi-Campus Network:** Federated expansion enabling inter-university competitions between IIT Guwahati, IIT Bombay, IIT Delhi, and global institutions.
-4. **Verified Carbon Offsets:** Micro-offsetting partnerships allowing student clubs to fund campus tree planting or solar canopy installations.
+3. **Multi-Campus Network:** Federated expansion enabling inter-university benchmarking across global institutions.
+4. **Verified Carbon Offsets:** Micro-offsetting partnerships allowing student communities to fund campus tree planting or solar canopy installations.
 
 ---
 
-## 🏆 AVINYA 2026 Credits
+## 🏆 Project Credits
 
-* **Event:** AVINYA 2026 — EcoInnovate Challenge
-* **Organized by:** Prakriti Club × Techniche | Indian Institute of Technology Guwahati
 * **Team:** Tech-Bro
 * **License:** MIT License

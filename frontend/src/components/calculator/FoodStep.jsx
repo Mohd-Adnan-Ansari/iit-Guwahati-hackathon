@@ -174,10 +174,9 @@ function FoodItemRow({ itemKey, value, onChange, accent }) {
           step={meta.unit.startsWith('pcs') || meta.unit.startsWith('pieces') ? '1' : '1'}
           value={value === undefined || value === null ? '' : value}
           onChange={handleChange}
-          placeholder="0"
           className="w-24 text-right px-3 py-1.5 text-sm font-mono rounded-lg border border-slate-200 bg-white
                      focus:outline-none focus:ring-2 focus:ring-emerald-400/50 focus:border-emerald-400
-                     hover:border-slate-300 transition-colors placeholder-slate-300"
+                     hover:border-slate-300 transition-colors"
         />
         <span className={`text-xs font-semibold px-2 py-1 rounded-md ${accent} text-slate-600 w-20 text-center flex-shrink-0`}>
           {meta.unit}

@@ -31,8 +31,7 @@ export default function EnergyStep({ values, onChange, errors }) {
             step="1"
             value={values.monthlyElectricityKwh}
             onChange={(e) => onChange('monthlyElectricityKwh', e.target.value)}
-            placeholder="e.g. 150"
-            className={`w-full bg-white border rounded-xl py-3 px-4 text-slate-900 text-lg font-bold placeholder-slate-400 focus:outline-none focus:ring-2 transition-all ${
+            className={`w-full bg-white border rounded-xl py-3 px-4 text-slate-900 text-lg font-bold focus:outline-none focus:ring-2 transition-all ${
               errors.monthlyElectricityKwh
                 ? 'border-red-400 focus:ring-red-400/20'
                 : 'border-slate-300 focus:border-amber-500 focus:ring-amber-500/20'

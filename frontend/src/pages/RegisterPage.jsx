@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
-import { Leaf, Lock, User, Mail, ArrowRight } from 'lucide-react';
+import { Leaf, Lock, User, Mail, ArrowRight, ShieldCheck } from 'lucide-react';
+
 
 export default function RegisterPage() {
   const navigate = useNavigate();
@@ -60,7 +61,6 @@ export default function RegisterPage() {
               <Leaf className="w-7 h-7 text-white" />
             </div>
             <h2 className="text-2xl font-black text-slate-900 tracking-tight mt-2">Create Your Account</h2>
-            <p className="text-xs text-slate-500">Join the campus decarbonization movement for AVINYA 2026.</p>
           </div>
 
           {error && (
@@ -70,13 +70,13 @@ export default function RegisterPage() {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-3.5">
+          <form onSubmit={handleSubmit} className="space-y-3.5" autoComplete="off">
             {[
-              { label: 'Full / Display Name', type: 'text', val: displayName, set: setDisplayName, ph: 'e.g. Priya Sharma', icon: null, required: false },
-              { label: 'Username *', type: 'text', val: username, set: setUsername, ph: 'e.g. priya_iitg', icon: User, required: true },
-              { label: 'Email Address *', type: 'email', val: email, set: setEmail, ph: 'e.g. priya@iitg.ac.in', icon: Mail, required: true },
-              { label: 'Password * (min 6 characters)', type: 'password', val: password, set: setPassword, ph: '••••••••', icon: Lock, required: true },
-            ].map(({ label, type, val, set, ph, icon: Icon, required }) => (
+              { label: 'Full / Display Name', type: 'text', val: displayName, set: setDisplayName, icon: null, required: false, ac: 'off' },
+              { label: 'Username *', type: 'text', val: username, set: setUsername, icon: User, required: true, ac: 'off' },
+              { label: 'Email Address *', type: 'email', val: email, set: setEmail, icon: Mail, required: true, ac: 'off' },
+              { label: 'Password * (min 6 characters)', type: 'password', val: password, set: setPassword, icon: Lock, required: true, ac: 'new-password' },
+            ].map(({ label, type, val, set, icon: Icon, required, ac }) => (
               <div key={label} className="space-y-1">
                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">{label}</label>
                 <div className="relative">
@@ -84,9 +84,9 @@ export default function RegisterPage() {
                     type={type}
                     value={val}
                     onChange={(e) => set(e.target.value)}
-                    placeholder={ph}
                     required={required}
-                    className={`w-full rounded-xl py-2.5 px-3.5 text-sm text-slate-900 placeholder-slate-400 input-3d ${Icon ? 'pl-9' : ''}`}
+                    autoComplete={ac}
+                    className={`w-full rounded-xl py-2.5 px-3.5 text-sm text-slate-900 input-3d ${Icon ? 'pl-9' : ''}`}
                   />
                   {Icon && <Icon className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />}
                 </div>

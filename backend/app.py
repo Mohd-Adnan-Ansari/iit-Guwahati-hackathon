@@ -89,4 +89,10 @@ def create_app(config_name='default'):
         return jsonify({'error': 'An unexpected error occurred. Please try again.'}), 500
 
     return app
+    
+if __name__ == '__main__':
+    app = create_app(os.environ.get('FLASK_ENV', 'development'))
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=app.config['DEBUG'])
+
 
